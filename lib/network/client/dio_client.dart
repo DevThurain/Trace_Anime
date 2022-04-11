@@ -21,7 +21,7 @@ class DioClient {
         responseHeader: true));
   }
   TracerApi getTracerClient() {
-    dio.options.headers.addAll({"Content-Type": "application/json"});
+    dio.options.headers.addAll({"Content-Type": "multipart/form-data"});
     dio.options.headers.addAll({"Accept": "application/json"});
     tracerApi = TracerApi(dio);
     return tracerApi;

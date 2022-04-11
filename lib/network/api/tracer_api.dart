@@ -16,6 +16,6 @@ abstract class TracerApi {
 
   @POST('/search')
   @MultiPart()
-  Future<SearchResult> searchWithImage(@Path('image') File image);
+  Future<SearchResult> searchWithImage(@Part() File image);
 
 }

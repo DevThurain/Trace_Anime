@@ -16,5 +16,13 @@ class SearchImageCompleteState extends SearchImageState {
   SearchImageCompleteState({required this.result});
 
   @override
-  List<SearchResult> get props => [result];
+  List<Object> get props => [result];
+}
+
+class SearchImageErroreState extends SearchImageState {
+  final AppError appError;
+  SearchImageErroreState({required this.appError});
+
+  @override
+  List<Object> get props => [appError];
 }

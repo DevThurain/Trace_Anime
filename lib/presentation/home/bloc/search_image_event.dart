@@ -5,8 +5,13 @@ abstract class SearchImageEvent extends Equatable {
 
   @override
   List<Object> get props => [];
+}
 
-  void searchImage(File image) {
+class EventMakeSearchImage extends SearchImageEvent {
+  final File image;
 
-  }
+  EventMakeSearchImage({required this.image});
+  
+    @override
+  List<Object> get props => [image];
 }

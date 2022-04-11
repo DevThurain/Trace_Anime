@@ -38,7 +38,11 @@ class _TracerApi implements TracerApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final _data = FormData();
+    _data.files.add(MapEntry(
+        'image',
+        MultipartFile.fromFileSync(image.path,
+            filename: image.path.split(Platform.pathSeparator).last)));
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<SearchResult>(Options(
                 method: 'POST',
