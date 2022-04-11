@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = "/home_screen";
@@ -9,6 +12,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final ImagePicker _picker = ImagePicker();
+  XFile? file = null;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +22,15 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.search),
-        onPressed: () {},
+        onPressed: () async{
+                  file = await _picker.pickImage(source: ImageSource.gallery);
+
+          setState(() {
+            
+          });
+        },
       ),
+      body: file != null ? Image.file(File(file!.path)) : Container()
     );
   }
 }
